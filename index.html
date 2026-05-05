@@ -1,284 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikhil Saini — Frontend Developer</title>
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --text: #e0e0e0;
-      --muted: #888;
-      --accent: #4f8ff7;
-      --border: #1a1a1a;
-    }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Nikhil Saini — Frontend Developer</title>
+		<style>
+			:root {
+				--bg: #0a0a0a;
+				--text: #e0e0e0;
+				--muted: #888;
+				--accent: #4f8ff7;
+				--border: #1a1a1a;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: system-ui, -apple-system, sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				line-height: 1.6;
+				max-width: 640px;
+				margin: 0 auto;
+				padding: 4rem 1.5rem;
+			}
+			
+			a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			
+			a:hover {
+				text-decoration: underline;
+			}
+			
+			/* Hero */
+			.hero {
+				margin-bottom: 4rem;
+			}
+			
+			.hero h1 {
+				font-size: 1.75rem;
+				font-weight: 600;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.25rem;
+			}
+			
+			.hero .subtitle {
+				color: var(--muted);
+				font-size: 1rem;
+				margin-bottom: 1rem;
+			}
+			
+			.hero .tagline {
+				font-size: 0.95rem;
+				color: var(--muted);
+				margin-bottom: 1.25rem;
+			}
+			
+			.links {
+				display: flex;
+				gap: 1.25rem;
+				flex-wrap: wrap;
+			}
+			
+			.links a {
+				font-size: 0.9rem;
+				border-bottom: 1px solid transparent;
+				transition: border-color 0.2s;
+			}
+			
+			.links a:hover {
+				border-color: var(--accent);
+			}
+			
+			/* Sections */
+			section {
+				margin-bottom: 3.5rem;
+			}
+			
+			section h2 {
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: var(--muted);
+				margin-bottom: 1.25rem;
+				font-weight: 500;
+			}
+			
+			/* Projects */
+			.project {
+				padding: 1.25rem 0;
+				border-top: 1px solid var(--border);
+			}
+			
+			.project:first-child {
+				border-top: none;
+				padding-top: 0;
+			}
+			
+			.project h3 {
+				font-size: 1.05rem;
+				font-weight: 500;
+				margin-bottom: 0.35rem;
+			}
+			
+			.project h3 a {
+				color: var(--text);
+			}
+			
+			.project h3 a:hover {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			
+			.project .status {
+				font-size: 0.8rem;
+				color: var(--muted);
+				margin-bottom: 0.5rem;
+			}
+			
+			.project p {
+				font-size: 0.9rem;
+				color: var(--muted);
+				margin-bottom: 0.5rem;
+			}
+			
+			.project .tech {
+				font-size: 0.8rem;
+				color: var(--muted);
+				opacity: 0.7;
+			}
+			
+			/* About */
+			.about p {
+				font-size: 0.9rem;
+				color: var(--muted);
+				margin-bottom: 0.75rem;
+			}
+			
+			/* Skills */
+			.skills-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
+			
+			.skills-grid h3 {
+				font-size: 0.85rem;
+				font-weight: 500;
+				margin-bottom: 0.4rem;
+			}
+			
+			.skills-grid p {
+				font-size: 0.85rem;
+				color: var(--muted);
+				line-height: 1.5;
+			}
+			
+			/* Experience */
+			.exp-item {
+				padding: 1rem 0;
+				border-top: 1px solid var(--border);
+			}
+			
+			.exp-item:first-child {
+				border-top: none;
+				padding-top: 0;
+			}
+			
+			.exp-item .exp-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				flex-wrap: wrap;
+				gap: 0.25rem 1rem;
+				margin-bottom: 0.25rem;
+			}
+			
+			.exp-item h3 {
+				font-size: 0.95rem;
+				font-weight: 500;
+			}
+			
+			.exp-item .dates {
+				font-size: 0.8rem;
+				color: var(--muted);
+				white-space: nowrap;
+			}
+			
+			.exp-item .exp-tech {
+				font-size: 0.8rem;
+				color: var(--muted);
+				opacity: 0.7;
+			}
+			
+			/* Contact */
+			.contact p {
+				font-size: 0.9rem;
+				color: var(--muted);
+				margin-bottom: 0.5rem;
+			}
+			
+			/* Footer */
+			footer {
+				margin-top: 4rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--border);
+				font-size: 0.8rem;
+				color: var(--muted);
+				opacity: 0.5;
+			}
+			
+			@media (max-width: 480px) {
+				body {
+					padding: 2.5rem 1.25rem;
+				}
+				
+				.skills-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
+	<body>
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+		<div class="hero">
+			<h1>Nikhil Saini</h1>
+			<p class="subtitle">Frontend Developer</p>
+			<p class="tagline">Angular, TypeScript, React. Melbourne-based.</p>
+			<div class="links">
+				<a href="mailto:nikhil.newcastle@gmail.com">Email</a>
+				<a href="https://github.com/NikhilSaini38" target="_blank" rel="noopener">GitHub</a>
+				<a href="https://linkedin.com/in/NikhilSaini38" target="_blank" rel="noopener">LinkedIn</a>
+			</div>
+		</div>
 
-    /* Hero */
-    .hero { margin-bottom: 4rem; }
-    .hero h1 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-    .hero .subtitle {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    .hero .tagline {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-    .links {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .links a {
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .links a:hover { border-color: var(--accent); }
+		<section>
+			<h2>Projects</h2>
 
-    /* Sections */
-    section { margin-bottom: 3.5rem; }
-    section h2 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      font-weight: 500;
-    }
+			<p style="color: var(--muted); font-size: 0.9rem;">Projects coming soon.</p>
+		</section>
 
-    /* Projects */
-    .project {
-      padding: 1.25rem 0;
-      border-top: 1px solid var(--border);
-    }
-    .project:first-child { border-top: none; padding-top: 0; }
-    .project h3 {
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-    }
-    .project h3 a { color: var(--text); }
-    .project h3 a:hover { color: var(--accent); text-decoration: none; }
-    .project .status {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .project p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .project .tech {
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.7;
-    }
+		<section>
+			<h2>About</h2>
+			<p>
+				I've been building frontend apps for 6 years. Most of that time in Angular.
+				I've shipped e-commerce platforms, enterprise tools, and mobile apps for Australian companies.
+			</p>
+			<p>
+				I'm based in Melbourne and looking for my next role.
+			</p>
+		</section>
 
-    /* About */
-    .about p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
+		<section>
+			<h2>Skills</h2>
+			<div class="skills-grid">
+				<div>
+					<h3>Frontend</h3>
+					<p>Angular, React, TypeScript, JavaScript, SCSS, Tailwind CSS, Ionic, React Native</p>
+				</div>
+				<div>
+					<h3>Backend &amp; Database</h3>
+					<p>Node.js, Express, RESTful APIs, PostgreSQL, MongoDB, Firebase, MS-SQL</p>
+				</div>
+				<div>
+					<h3>DevOps &amp; Tools</h3>
+					<p>AWS, Docker, Terraform, Jenkins, Bitbucket Pipelines, CI/CD, Git</p>
+				</div>
+				<div>
+					<h3>Testing &amp; Design</h3>
+					<p>Vitest, Jest, Jasmine, Karma, Selenium, Storybook, Figma</p>
+				</div>
+			</div>
+		</section>
 
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .skills-grid h3 {
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-    .skills-grid p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+		<section>
+			<h2>Experience</h2>
 
-    /* Experience */
-    .exp-item {
-      padding: 1rem 0;
-      border-top: 1px solid var(--border);
-    }
-    .exp-item:first-child { border-top: none; padding-top: 0; }
-    .exp-item .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem 1rem;
-      margin-bottom: 0.25rem;
-    }
-    .exp-item h3 {
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-    .exp-item .dates {
-      font-size: 0.8rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .exp-item .exp-tech {
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.7;
-    }
+			<div class="exp-item">
+				<div class="exp-header">
+					<h3>Beemur Apps</h3>
+					<span class="dates">Jun 2025 – Nov 2025</span>
+				</div>
+				<p class="exp-tech">React, Next.js, TypeScript, PostgreSQL, AWS, Terraform</p>
+			</div>
 
-    /* Contact */
-    .contact p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
+			<div class="exp-item">
+				<div class="exp-header">
+					<h3>Winning Group</h3>
+					<span class="dates">Jun 2022 – May 2025</span>
+				</div>
+				<p class="exp-tech">Angular, React, TypeScript, NX, Storybook</p>
+			</div>
 
-    /* Footer */
-    footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--muted);
-      opacity: 0.5;
-    }
+			<div class="exp-item">
+				<div class="exp-header">
+					<h3>Prospecta Software</h3>
+					<span class="dates">Nov 2021 – Jun 2022</span>
+				</div>
+				<p class="exp-tech">Angular, TypeScript, SCSS</p>
+			</div>
 
-    @media (max-width: 480px) {
-      body { padding: 2.5rem 1.25rem; }
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
+			<div class="exp-item">
+				<div class="exp-header">
+					<h3>Skynox Technologies</h3>
+					<span class="dates">Dec 2018 – Sept 2021</span>
+				</div>
+				<p class="exp-tech">Ionic, React Native, Angular, Node.js</p>
+			</div>
 
-  <div class="hero">
-    <h1>Nikhil Saini</h1>
-    <p class="subtitle">Frontend Developer</p>
-    <p class="tagline">Angular, TypeScript, React. Melbourne-based.</p>
-    <div class="links">
-      <a href="mailto:nikhil.newcastle@gmail.com">Email</a>
-      <a href="https://github.com/NikhilSaini38" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/NikhilSaini38" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
+			<div class="exp-item">
+				<div class="exp-header">
+					<h3>RS Livemedia</h3>
+					<span class="dates">Sept 2017 – Jan 2018</span>
+				</div>
+				<p class="exp-tech">Ionic, Node.js, REST APIs</p>
+			</div>
+		</section>
 
-  <section>
-    <h2>Projects</h2>
+		<section class="contact">
+			<h2>Contact</h2>
+			<p><a href="mailto:nikhil.newcastle@gmail.com">nikhil.newcastle@gmail.com</a></p>
+			<p>If you're hiring, I'm available.</p>
+		</section>
 
-    <p style="color: var(--muted); font-size: 0.9rem;">Projects coming soon.</p>
-  </section>
-
-  <section>
-    <h2>About</h2>
-    <p>
-      I've been building frontend apps for 6 years. Most of that time in Angular.
-      I've shipped e-commerce platforms, enterprise tools, and mobile apps for Australian companies.
-    </p>
-    <p>
-      I'm based in Melbourne and looking for my next role.
-    </p>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div>
-        <h3>Frontend</h3>
-        <p>Angular, React, TypeScript, JavaScript, SCSS, Tailwind CSS, Ionic, React Native</p>
-      </div>
-      <div>
-        <h3>Backend &amp; Database</h3>
-        <p>Node.js, Express, RESTful APIs, PostgreSQL, MongoDB, Firebase, MS-SQL</p>
-      </div>
-      <div>
-        <h3>DevOps &amp; Tools</h3>
-        <p>AWS, Docker, Terraform, Jenkins, Bitbucket Pipelines, CI/CD, Git</p>
-      </div>
-      <div>
-        <h3>Testing &amp; Design</h3>
-        <p>Vitest, Jest, Jasmine, Karma, Selenium, Storybook, Figma</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Beemur Apps</h3>
-        <span class="dates">Jun 2025 – Nov 2025</span>
-      </div>
-      <p class="exp-tech">React, Next.js, TypeScript, PostgreSQL, AWS, Terraform</p>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Winning Group</h3>
-        <span class="dates">Jun 2022 – May 2025</span>
-      </div>
-      <p class="exp-tech">Angular, React, TypeScript, NX, Storybook</p>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Prospecta Software</h3>
-        <span class="dates">Nov 2021 – Jun 2022</span>
-      </div>
-      <p class="exp-tech">Angular, TypeScript, SCSS</p>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>Skynox Technologies</h3>
-        <span class="dates">Dec 2018 – Sept 2021</span>
-      </div>
-      <p class="exp-tech">Ionic, React Native, Angular, Node.js</p>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-header">
-        <h3>RS Livemedia</h3>
-        <span class="dates">Sept 2017 – Jan 2018</span>
-      </div>
-      <p class="exp-tech">Ionic, Node.js, REST APIs</p>
-    </div>
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <p><a href="mailto:nikhil.newcastle@gmail.com">nikhil.newcastle@gmail.com</a></p>
-    <p>If you're hiring, I'm available.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Nikhil Saini</p>
-  </footer>
-
-</body>
+		<footer>
+			<p>© 2025 Nikhil Saini</p>
+		</footer>
+	</body>
 </html>
